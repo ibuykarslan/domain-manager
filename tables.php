@@ -71,6 +71,9 @@
       </section>
       <!-- Content -->
       <div id='content'>
+        
+                  <a href="xls.php"><button class="btn btn-default" type="">Excel Save</button></a>
+                
         <div class='panel panel-default grid'>
           <div class='panel-heading'>
             <i class='icon-table icon-large'></i>

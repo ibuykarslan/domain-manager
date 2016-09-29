@@ -145,9 +145,11 @@
                 <div class='form-group'>
                   <label class='control-label'>Registered Company</label>
                   <select class='form-control' name='domain_company'>
-                    <option value = 'Name.com'>Name.com</option>
-                    <option value = 'Godaddy.com'>Godaddy.com</option>
-                    <option value = 'Natro.com'>Natro.com</option>
+                    <option value = 'Name.com'>Name</option>
+                    <option value = 'Godaddy'>Godaddy</option>
+                    <option value = 'Doruknet'>Doruknet</option>
+                    <option value = 'NİC-TR'>Nic-Tr</option>
+                    
                   </select>
                 </div>
                 <div class='form-actions'>
