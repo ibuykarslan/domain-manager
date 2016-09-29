@@ -13,3 +13,7 @@ Aktif Uzantılar<br>
 .org.tr<br>
 
 Sadece listede olan uzantılar api ile bilgileri alınabiliyor. Diğer uzantılar manuel düzenleye yapabilirsiniz.
+
+
+*** 29.10.2016 Güncellemesi ***
+Bu güncelleme ile domain listenizi excel formatında bilgisayarınıza indirebilirsiniz.
