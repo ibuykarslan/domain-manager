@@ -65,7 +65,6 @@ $objPHPExcel->setActiveSheetIndex(0)
             ->setCellValue('C1', 'Registered Company')
             ->setCellValue('D1', 'Creation Date')
             ->setCellValue('E1', 'Expiration Date')
-            ->setCellValue('F1', 'Day')
             ->setCellValue('G1', $time);
 
 $value = 2;
