@@ -43,10 +43,11 @@
 
 		function login (){
 
-				if ($_SESSION['ok'] != '998574' ){
+				if ((isset($_SESSION['ok'])) and ($_SESSION['ok'] != '998574') ){
 
 				header("Location:login.php");
-				die;	
+				die;
+				
 				}
 
 		}

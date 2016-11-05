@@ -16,22 +16,20 @@
                 $_SESSION["name"]       = $row->user_name;
                 $_SESSION["surname"]    = $row->user_surname;
                 $_SESSION['ok']         = "998574";
+                
+                header("Location:index.php");
+                die;
 
             }else{
 
-
+ 
             }
 
         }
         
-        if (isset($_SESSION) and !empty($_SESSION)){
-
-                              if ($_SESSION['ok'] == '998574'){
-                                        
+        if ((isset($_SESSION['ok'])) and (!empty($_SESSION['ok'])) and ($_SESSION['ok'] == '998574') ){
                                         header("Location:index.php");
                                         die;
-
-                                      }
         }
         
       
