@@ -1,7 +1,8 @@
 <?php
         require_once  "config.php";
         login();
-        $results    = $db->get_results("SELECT * FROM domain_list Where domain_status = '1' ORDER BY domain_expiration_date ASC ");
+        $Registered = strip_tags($_GET['id']);
+        $results    = $db->get_results("SELECT * FROM domain_list Where domain_status = '1' and domain_company = '$Registered' ORDER BY domain_expiration_date ASC ");
 ?>
 <!DOCTYPE html>
 <html lang="en">
