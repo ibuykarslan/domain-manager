@@ -43,12 +43,17 @@
 
 		function login (){
 
+				if (!isset($_SESSION['ok']) ){
+								header("Location:login.php");
+								die;
+				}
 				if ((isset($_SESSION['ok'])) and ($_SESSION['ok'] != '998574') ){
 
-				header("Location:login.php");
+				header("Location:logout.php");
 				die;
 				
 				}
+
 
 		}
 
