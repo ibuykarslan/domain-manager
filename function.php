@@ -59,5 +59,51 @@
 			return; 
 		}
 
+		function Link_Control($link) {	
 
+			$time = time();
+								        $main	= array();
+								        $ch 	= curl_init();
+								        curl_setopt ($ch, CURLOPT_URL, $link);
+								        curl_setopt ($ch, CURLOPT_HEADER, 1);
+								        curl_setopt ($ch, CURLOPT_NOBODY, 1);
+								        @curl_setopt ($ch, CURLOPT_FOLLOWLOCATION, 1);
+								        curl_setopt ($ch, CURLOPT_NETRC, 1);
+								        curl_setopt ($ch, CURLOPT_TIMEOUT, 10);
+								        ob_start();
+								        curl_exec ($ch);
+								        $stuff = ob_get_contents();
+								        ob_end_clean();
+								        curl_close ($ch);
+
+								        $parts = split("\n",$stuff,2);
+								        $main = split(" ",$parts[0],3);
+        if(@$don =  ($main[2])){
+            echo "Açık Siteler : ".$link.' <br>';
+            global $db;
+            $register = $db->query("INSERT INTO domain_logs (
+                                                        logs_link,
+                                                        logs_time,
+                                                        logs_type
+                                                      
+                                                      ) VALUES (
+                                                      
+                                                        '$link',
+                                                        '$time',
+                                                        'Open' )");
+        }else{
+            echo "Kapalı Siteler : ".$link.' <br>';
+            global $db;
+            $register = $db->query("INSERT INTO domain_logs (
+                                                        logs_link,
+                                                        logs_time,
+                                                        logs_type
+                                                      
+                                                      ) VALUES (
+                                                      
+                                                        '$link',
+                                                        '$time',
+                                                        'Closed' )");
+        }
+    }
 ?>
