@@ -59,6 +59,7 @@
 			return; 
 		}
 
+		/*R10.net @Justian0 */
 		function Link_Control($link) {	
 
 			$time = time();
@@ -78,32 +79,33 @@
 
 								        $parts = split("\n",$stuff,2);
 								        $main = split(" ",$parts[0],3);
-        if(@$don =  ($main[2])){
-            echo "Açık Siteler : ".$link.' <br>';
-            global $db;
-            $register = $db->query("INSERT INTO domain_logs (
-                                                        logs_link,
-                                                        logs_time,
-                                                        logs_type
-                                                      
-                                                      ) VALUES (
-                                                      
-                                                        '$link',
-                                                        '$time',
-                                                        'Open' )");
-        }else{
-            echo "Kapalı Siteler : ".$link.' <br>';
-            global $db;
-            $register = $db->query("INSERT INTO domain_logs (
-                                                        logs_link,
-                                                        logs_time,
-                                                        logs_type
-                                                      
-                                                      ) VALUES (
-                                                      
-                                                        '$link',
-                                                        '$time',
-                                                        'Closed' )");
-        }
-    }
+								        if(@$don =  ($main[2])){
+								            echo "Açık Siteler : ".$link.' <br>';
+								            global $db;
+								            $register = $db->query("INSERT INTO domain_logs (
+								                                                        logs_link,
+								                                                        logs_time,
+								                                                        logs_type
+								                                                      
+								                                                      ) VALUES (
+								                                                      
+								                                                        '$link',
+								                                                        '$time',
+								                                                        'Open' )");
+								        }else{
+								            echo "Kapalı Siteler : ".$link.' <br>';
+								            global $db;
+								            $register = $db->query("INSERT INTO domain_logs (
+								                                                        logs_link,
+								                                                        logs_time,
+								                                                        logs_type
+								                                                      
+								                                                      ) VALUES (
+								                                                      
+								                                                        '$link',
+								                                                        '$time',
+								                                                        'Closed' )");
+								        }
+    	}
+    	/*R10.net @Justian0 */
 ?>
