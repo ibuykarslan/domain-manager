@@ -18,7 +18,7 @@
 			require_once "function.php";
 
 			$_title = "Domain Manager";
-			$_link  = "http://192.168.2.100/domain-manager/";
+			$_link  = "http://localhost/domain-manager/";
 
 			
 
