@@ -6,7 +6,7 @@
 		// Veri Tabanı Bilgileri		
 		$db_kullanici	=	"root";
 		$db_parola		=	"";
-		$db_isim		=	"codecanyon-manager";
+		$db_isim		=	"domain_manager";
 		$db_sunucu		=	"localhost";
 		
 		// Veri Tabanına Bağlanmak
