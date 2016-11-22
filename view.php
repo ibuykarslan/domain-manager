@@ -168,6 +168,9 @@
                         <div class="col-md-2 col-sm-2 col-xs-12">Expiration Date
                           <input type="text" id="domain_link" name="domain_expiration_date" required="required" class="form-control col-md-7 col-xs-12" value="<?php echo date('d.m.Y',$row->domain_expiration_date);?>">
                         </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12">Remaining Day
+                          <input type="text" id="domain_link" name="" required="required" class="form-control col-md-7 col-xs-12" value="<?php echo Days_Remaining($row->domain_id);?>">
+                        </div>
                         <div class="col-md-2 col-sm-2 col-xs-12">Update Date
                           <input type="text" id="domain_link" name="domain_ip3" required="required" class="form-control col-md-7 col-xs-12" value="<?php echo date('d.m.Y h:i:s',$row->domain_update_date);?>">
                         </div>
