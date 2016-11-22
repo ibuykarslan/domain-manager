@@ -5,6 +5,7 @@
         
         $domain_id  =   strip_tags($_GET['id']);
         $row        =   $db->get_row("SELECT * FROM domain_list Where domain_status = '1' and domain_id = '$domain_id' LIMIT 1");
+        $domain_id  =   $row->domain_link;
         
         if ( $db->num_rows != '1'){
                                     header("Location:tables.php?alert=5");
@@ -196,6 +197,12 @@
                         </div>
                       </div>
                       <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Open Closed Tracking</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="domain_link" name="domain_tracking" required="required" class="form-control col-md-7 col-xs-12" value="<?php echo $row->domain_tracking;?>">
+                        </div>
+                      </div>
+                      <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Domain İnformation</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                           <textarea class="resizable_textarea form-control" name="content" placeholder="Domain İnformation Text"><?php echo $row->domain_content;?></textarea>
@@ -219,7 +226,42 @@
                   </div>
                 </div>
               </div>
-             
+              <?php if ($row->domain_tracking == "Yes"){ ?>
+               <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Open Closed Tracking List<small></small></h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <p class="text-muted font-13 m-b-30"></p>
+                    <table id="datatable-buttons" class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                          <th>Domain Name</th>
+                          <th>Date</th>
+                          <th>Status</th>
+                          
+                        </tr>
+                      </thead>
+                      <tbody>
+
+                      <?php
+                    $results    = $db->get_results("SELECT * FROM domain_logs Where logs_link = '$domain_id' ORDER BY logs_id DESC LIMIT 30 ");
+                        if ( $db->num_rows >= '1'){
+                        foreach ( $results as $db_rows ){ ?>
+                        <tr>
+                            <td><?php echo $db_rows->logs_link;?></td>
+                            <td><?php echo date('d.m.Y h:i:s',$db_rows->logs_time);?></td>
+                            <td><?php echo $db_rows->logs_type;?></td>                            
+                        </tr>
+                      <?php } } ?>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <?php } ?>
             </div>          
           </div>
          

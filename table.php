@@ -157,6 +157,7 @@
 
                       <?php
                         $results    = $db->get_results("SELECT * FROM registered_list ");
+                        if ( $db->num_rows >= '1'){
                         foreach ( $results as $db_rows ){ ?>
                         <tr>
                             <td><a href="<?php echo $_link."table-registered.php?id=".$db_rows->reg_id;?>"><?php echo $db_rows->reg_title;?></a></td>
@@ -164,7 +165,7 @@
                                       $results    = $db->get_results("SELECT * FROM domain_list WHERE domain_company = '$domain_company' ");
                                       echo $db->num_rows;?></td>                            
                         </tr>
-                      <?php } ?>
+                      <?php } } ?>
                       </tbody>
                     </table>
                   </div>

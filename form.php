@@ -6,6 +6,8 @@
             $domain_link      = strip_tags($_POST['domain_link']);
             $domain_ext       = strip_tags($_POST['domain_ext']);
             $domain_company   = strip_tags($_POST['domain_company']);
+            $domain_tracking  = strip_tags($_POST['domain_tracking']);
+            
             $domain_status    = '1'; //Aktif Domain
             
 
@@ -23,14 +25,16 @@
                                                         domain_link,
                                                         domain_ext,
                                                         domain_company,
-                                                        domain_status
+                                                        domain_status,
+                                                        domain_tracking
                                                       
                                                       ) VALUES (
                                                       
                                                         '$domain_link',
                                                         '$domain_ext',
                                                         '$domain_company',
-                                                        '$domain_status'
+                                                        '$domain_status',
+                                                        '$domain_tracking'
 
                                                                                     )");
       if ($register){
@@ -164,6 +168,16 @@
                           </select>
                         </div>
                       </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Open Closed Tracking</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <select class="form-control" name="domain_tracking">
+                            <option value = 'No'>No</option>
+                            <option value = 'Yes'>Yes</option>
+                          </select>
+                        </div>
+                      </div>
+                      
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Registered Company</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">

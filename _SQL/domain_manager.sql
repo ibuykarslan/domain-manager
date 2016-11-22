@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 03 Kas 2016, 16:14:44
+-- Üretim Zamanı: 19 Kas 2016, 11:08:45
 -- Sunucu sürümü: 10.1.16-MariaDB
 -- PHP Sürümü: 5.6.24
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Veritabanı: `codecanyon-manager`
+-- Veritabanı: `domain_manager`
 --
 
 -- --------------------------------------------------------
@@ -41,7 +41,21 @@ CREATE TABLE `domain_list` (
   `domain_expiration_date` int(11) NOT NULL,
   `domain_creation_date` int(11) NOT NULL,
   `domain_content` text COLLATE utf8_turkish_ci NOT NULL,
+  `domain_tracking` varchar(6) COLLATE utf8_turkish_ci NOT NULL,
   `domain_status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `domain_logs`
+--
+
+CREATE TABLE `domain_logs` (
+  `logs_id` int(11) NOT NULL,
+  `logs_link` varchar(225) COLLATE utf8_turkish_ci NOT NULL,
+  `logs_time` int(11) NOT NULL,
+  `logs_type` varchar(50) COLLATE utf8_turkish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 -- --------------------------------------------------------
@@ -55,6 +69,13 @@ CREATE TABLE `registered_list` (
   `reg_title` varchar(250) NOT NULL,
   `reg_time` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Tablo döküm verisi `registered_list`
+--
+
+INSERT INTO `registered_list` (`reg_id`, `reg_title`, `reg_time`) VALUES
+(21, 'Godaddy', 1479539131);
 
 -- --------------------------------------------------------
 
@@ -88,6 +109,12 @@ ALTER TABLE `domain_list`
   ADD UNIQUE KEY `domain_id` (`domain_id`);
 
 --
+-- Tablo için indeksler `domain_logs`
+--
+ALTER TABLE `domain_logs`
+  ADD UNIQUE KEY `logs_id` (`logs_id`);
+
+--
 -- Tablo için indeksler `registered_list`
 --
 ALTER TABLE `registered_list`
@@ -107,12 +134,17 @@ ALTER TABLE `user`
 -- Tablo için AUTO_INCREMENT değeri `domain_list`
 --
 ALTER TABLE `domain_list`
-  MODIFY `domain_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=180;
+  MODIFY `domain_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- Tablo için AUTO_INCREMENT değeri `domain_logs`
+--
+ALTER TABLE `domain_logs`
+  MODIFY `logs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- Tablo için AUTO_INCREMENT değeri `registered_list`
 --
 ALTER TABLE `registered_list`
-  MODIFY `reg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `reg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- Tablo için AUTO_INCREMENT değeri `user`
 --
