@@ -247,7 +247,7 @@
                       <tbody>
 
                       <?php
-                    $results    = $db->get_results("SELECT * FROM domain_logs Where logs_link = '$domain_id' ORDER BY logs_id DESC LIMIT 30 ");
+                        $results    = $db->get_results("SELECT * FROM domain_logs Where logs_link = '$domain_id' ORDER BY logs_id DESC LIMIT 30 ");
                         if ( $db->num_rows >= '1'){
                         foreach ( $results as $db_rows ){ ?>
                         <tr>
