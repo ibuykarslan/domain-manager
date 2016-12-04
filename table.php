@@ -85,6 +85,31 @@
 
         <!-- page content -->
         <div class="right_col">
+        <!-- top tiles -->
+          <div class="row tile_count">
+            <div class="col-md-6 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="fa fa-user"></i> Total Domain</span>
+              <div class="count green"><?php $db->get_results("SELECT * FROM domain_list ");
+                                  echo $db->num_rows;  ?>
+
+              </div>
+              
+            </div>
+            <div class="col-md-6 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="fa fa-clock-o"></i> Total Registered Name</span>
+              <div class="count"><?php $db->get_results("SELECT * FROM registered_list ");
+                                  echo $db->num_rows;  ?></div>
+              
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count" visibility: hidden >
+              <span class="count_top"><i class="fa fa-user"></i> Avarage Price</span>
+              <div class="count green">2,500</div>
+              
+            </div>
+
+
+          </div>
+          <!-- /top tiles -->
           <div class="">        
             <div class="clearfix"></div>
             <div class="row">
